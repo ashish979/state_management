@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import uuid from 'node-uuid';
+import ListActionCreator from "../flux/action/ListActionCreator";
 
 const styleRequired = {
   color: '#ffaaaa',
@@ -18,8 +18,8 @@ class AddListItem extends Component {
       quantity: this.listItemQuantity.value,
     };
 
-    this.props.addListItem(item);
-  }
+    ListActionCreator.addItem(item);
+  };
 
   render() {
     return (
@@ -76,9 +76,5 @@ class AddListItem extends Component {
     );
   }
 }
-
-AddListItem.propTypes = {
-  addListItem: PropTypes.func.isRequired,
-};
 
 export default AddListItem;
