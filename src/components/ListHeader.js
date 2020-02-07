@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ListActionCreator  from "../flux/action/ListActionCreator";
 
 class ListHeader extends Component {
   handleSubmit = event => {
     event.preventDefault();
-
-    const { removeAllListItems } = this.props;
-
-    removeAllListItems();
-  }
+    ListActionCreator.removeAllItems();
+  };
 
   render() {
     const { totalNumberOfListItems } = this.props;
@@ -28,7 +26,6 @@ class ListHeader extends Component {
 }
 
 ListHeader.propTypes = {
-  removeAllListItems: PropTypes.func.isRequired,
   totalNumberOfListItems: PropTypes.number.isRequired,
 };
 
