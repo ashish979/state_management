@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ListItemDescription from './ListItemDescription';
+import ListActionCreator from "../flux/action/ListActionCreator";
 
 class ListItem extends Component {
   handleSubmit = event => {
     event.preventDefault();
-
-    const { removeListItem } = this.props;
     const listItemId = this.props.item.id;
-
-    removeListItem(listItemId);
-  }
+    ListActionCreator.removeItem(listItemId);
+  };
 
   render() {
     const { item } = this.props;
@@ -40,8 +38,7 @@ class ListItem extends Component {
 }
 
 ListItem.propTypes = {
-  item: PropTypes.object.isRequired,
-  removeListItem: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired
 };
 
 export default ListItem;
