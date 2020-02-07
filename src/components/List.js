@@ -7,7 +7,9 @@ import ListStore from "../flux/store/ListStore";
 class List extends Component {
   constructor(props) {
     super(props);
-    this.state.items = ListStore.getListItems();
+    this.state = {
+      items: ListStore.getListItems()
+    };
   }
 
   componentDidMount() {

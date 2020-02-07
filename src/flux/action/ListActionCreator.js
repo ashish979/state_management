@@ -24,6 +24,6 @@ function removeAllItems() {
   dispatcher.dispatch(action);
 }
 
-export {
+export default {
   addItem, removeItem, removeAllItems
 }
